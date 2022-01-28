@@ -6,6 +6,7 @@ use App\Http\Requests\SlabStoreRequest;
 use App\Http\Requests\SlabUpdateRequest;
 use App\Http\Resources\SlabResource;
 use App\Models\Slab;
+use Exception;
 use Illuminate\Http\Request;
 
 class SlabController extends Controller
@@ -13,7 +14,7 @@ class SlabController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -25,12 +26,12 @@ class SlabController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(SlabStoreRequest $request)
     {
         try {
-            $slab = Slab::create($request->all());
+            $slab = Slab::create($request->validated());
             return response()->json([
                 'product' => $slab,
                 'message' => 'Slab Created Successfully',
@@ -44,7 +45,7 @@ class SlabController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
@@ -60,13 +61,13 @@ class SlabController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(SlabUpdateRequest $request, $id)
     {
         $slab = Slab::findOrFail($id);
         try {
-            $slab->update($request->all());
+            $slab->update($request->validated());
             return response()->json(['data' => $slab, 'message' => 'Slab Update Successfully'], 201);
         } catch (Exception $e) {
             return response()->json(['error' => 'Failed to update slab!'], 422);
@@ -77,7 +78,7 @@ class SlabController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {

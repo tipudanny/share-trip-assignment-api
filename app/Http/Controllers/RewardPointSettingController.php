@@ -32,7 +32,7 @@ class RewardPointSettingController extends Controller
             return response()->json(['message'=> ' Already have a Reward Settings, Update this one.']);
         }
 
-        $rewardInfo = RewardInPurchases::create($request->all());
+        $rewardInfo = RewardInPurchases::create($request->validated());
 
         return response()->json(['data'=> $rewardInfo]);
     }

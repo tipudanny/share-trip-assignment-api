@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id');
             $table->integer('product_id');
             $table->decimal('price');
+            $table->decimal('point_rewarded');
             $table->timestamps();
         });
     }

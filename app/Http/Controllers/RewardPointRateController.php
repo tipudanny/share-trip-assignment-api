@@ -33,7 +33,7 @@ class RewardPointRateController extends Controller
             return response()->json(['message'=> ' Already have a rate, Update this one.']);
         }
 
-        $rewardRate = RewardPointRate::create($request->all());
+        $rewardRate = RewardPointRate::create($request->validated());
 
         return response()->json(['data'=> $rewardRate]);
 
