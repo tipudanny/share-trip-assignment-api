@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderStoreRequest;
+use App\Interfaces\RewardPoint;
 use App\Models\Order;
 use Exception;
 use Illuminate\Support\Facades\Auth;

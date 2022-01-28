@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Interfaces\RewardPoint;
+use App\Models\RewardInPurchases;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -23,8 +25,12 @@ class OrderStoreRequest extends FormRequest
 
     protected function prepareForValidation()
     {
+        $rewardSettingInfo = RewardInPurchases::first();
+        $rewardPoint =  floor(($rewardSettingInfo['points'] * $this->price)/$rewardSettingInfo['amount']);
+
         $this->merge([
-            'user_id' => Auth::id()
+            'user_id' => Auth::id(),
+            'point_rewarded' => $rewardPoint
         ]);
     }
 
