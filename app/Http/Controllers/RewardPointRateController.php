@@ -5,26 +5,24 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RewardRateStoreRequest;
 use App\Http\Resources\RewardRateResource;
 use App\Models\RewardPointRate;
+use Exception;
 use Illuminate\Http\Request;
 
 class RewardPointRateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $rate = RewardPointRate::orderBy('id', 'desc')->get();
+        $rate = RewardPointRate::all();
         return RewardRateResource::collection($rate);
+        //return response()->json(['data' => $rate]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(RewardRateStoreRequest $request)
     {
@@ -44,7 +42,7 @@ class RewardPointRateController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
@@ -60,7 +58,7 @@ class RewardPointRateController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
