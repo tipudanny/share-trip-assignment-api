@@ -72,5 +72,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->user_type === 'admin';
     }
 
+    public function rewardPoints()
+    {
+        return $this->hasOne(Reward::class,'user_id');
+    }
+
 
 }

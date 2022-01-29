@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -43,6 +44,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
         Route::get('/dashboard', [RewardController::class, 'dashboard']);
+        Route::get('/customers', [AdminController::class, 'customers']);
         Route::apiResource('/slab', SlabController::class);
         Route::apiResource('/reward-point-rate', RewardPointRateController::class);
         Route::apiResource('/reward-point-setting', RewardPointSettingController::class);
