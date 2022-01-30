@@ -63,7 +63,7 @@ class AuthController extends Controller
     public function me()
     {
         //return response()->json($this->guard()->user());
-        return response()->json(auth()->user());
+        return response()->json(User::with('rewardPoints')->find(auth()->user())->first());
     }
 
     /**

@@ -33,7 +33,7 @@ class SlabController extends Controller
         try {
             $slab = Slab::create($request->validated());
             return response()->json([
-                'product' => $slab,
+                'slab' => $slab,
                 'message' => 'Slab Created Successfully',
             ], 201);
         } catch (Exception $e) {

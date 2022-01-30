@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function () {
         Route::get('/dashboard', [RewardController::class, 'dashboard']);
         Route::get('/customers', [AdminController::class, 'customers']);
+        Route::get('/orders', [AdminController::class, 'orders']);
         Route::apiResource('/slab', SlabController::class);
         Route::apiResource('/reward-point-rate', RewardPointRateController::class);
         Route::apiResource('/reward-point-setting', RewardPointSettingController::class);

@@ -19,4 +19,8 @@ class Order extends Model
     {
         return $this->belongsTo(Product::class,'product_id');
     }
+    public function rewardPoints()
+    {
+        return $this->hasOne(Reward::class,'user_id');
+    }
 }
