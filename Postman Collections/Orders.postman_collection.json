@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "eba03f5a-ed65-4cbb-976e-6fb7c580507c",
+		"name": "Orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{host}}/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "get single order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{host}}/orders/4"
+			},
+			"response": []
+		},
+		{
+			"name": "add new order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\":1,\r\n    \"price\": 377.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{host}}/orders"
+			},
+			"response": []
+		}
+	]
+}

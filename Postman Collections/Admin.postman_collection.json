@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "9063935d-f716-420e-9bd9-ce215f0e6488",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "customers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{host}}/admin/customers"
+			},
+			"response": []
+		},
+		{
+			"name": "orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{host}}/admin/orders"
+			},
+			"response": []
+		}
+	]
+}
