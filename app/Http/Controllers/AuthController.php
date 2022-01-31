@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRegistrationRequest;
+use App\Models\Slab;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,7 +64,14 @@ class AuthController extends Controller
     public function me()
     {
         //return response()->json($this->guard()->user());
-        return response()->json(User::with('rewardPoints')->find(auth()->user())->first());
+        $user = User::with('rewardPoints')->find(auth()->user())->first();
+        $slabs = Slab::all();
+        foreach ($slabs as $slab){
+            if (($user->rewardPoints !=null) && ($user->rewardPoints->points >= $slab->points) ){
+                $user->slab = $slab->title;
+            }
+        }
+        return response()->json($user);
     }
 
     /**

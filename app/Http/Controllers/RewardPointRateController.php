@@ -13,9 +13,9 @@ class RewardPointRateController extends Controller
 
     public function index()
     {
-        $rate = RewardPointRate::all();
-        return RewardRateResource::collection($rate);
-        //return response()->json(['data' => $rate]);
+        $rate = RewardPointRate::first();
+        //return RewardRateResource::collection($rate);
+        return response()->json(['data' => $rate]);
     }
 
     /**
