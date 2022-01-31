@@ -13,7 +13,7 @@
 - run php artisan serve
 
 #Postman uses collection
--find the file name collection.json and import your postman and check every route.
+-find the folder name `Postman Collection` and import your postman and check every route.
 
 
 ## License
