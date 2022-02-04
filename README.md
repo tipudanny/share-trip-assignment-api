@@ -2,13 +2,12 @@
 ## Install Laravel
 - run composer install
 
-## Online Vertion
-
-    ```www.api.tipu.me/api/{{endpoint}}```
+## Online Vertion 
+    http://api.tipu.me/api/{{endpoint}}
     
-    example: ```www.api.tipu.me/api/auth/login```
+    example: http://api.tipu.me/api/auth/login
     
-    admin credential : mail  ``` john@example.com ``` user password ``` password ```
+    admin credential : mail :  ``` john@example.com ``` password : ``` password ```
 
 ## Install JWT
 - ```composer require tymon/jwt-auth```
