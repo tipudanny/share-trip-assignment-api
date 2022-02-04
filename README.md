@@ -7,6 +7,10 @@
     
     example: 
     - `www.api.tipu.me/api/auth/login`
+    
+    credential : 
+    mail : ``` john@example.com ``` Admin user
+    password : ``` password ```
 
 ##Install JWT
 - composer require tymon/jwt-auth
