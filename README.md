@@ -3,10 +3,10 @@
 - run composer install
 
 ## Online Vertion
-    - `www.api.tipu.me/api/{{endpoint}}`
+    - ```www.api.tipu.me/api/{{endpoint}}```
     
     example: 
-    - `www.api.tipu.me/api/auth/login`
+    - ```www.api.tipu.me/api/auth/login```
     
     credential : 
     mail : ``` john@example.com ``` Admin user
